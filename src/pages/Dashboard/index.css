@@ -1,0 +1,36 @@
+.summary-cards {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  margin: 0 0 24px;
+}
+
+@media (max-width: 600px) {
+  .summary-cards {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+.recent-transactions {
+  width: 100%;
+  padding: 22px;
+  background-color: #ffffff;
+  border: 1px solid #edf0f5;
+  border-radius: 12px;
+}
+
+.section-title {
+  margin: 0 0 14px;
+  color: #4b587d;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.transaction-list {
+  width: 100%;
+}
+
+.transaction-list .transaction-item:last-child {
+  border-bottom: none;
+}

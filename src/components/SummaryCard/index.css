@@ -1,0 +1,72 @@
+.summary-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  min-width: 0;
+  min-height: 150px;
+  padding: 24px;
+  background-color: #ffffff;
+  border: 1px solid #edf0f5;
+  border-radius: 12px;
+}
+
+.summary-card-details {
+  min-width: 0;
+}
+
+.summary-card-title {
+  margin: 0 0 12px;
+  color: #7b849b;
+  font-size: 14px;
+}
+
+.summary-card-amount {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.summary-card.credit .summary-card-amount {
+  color: #24a56a;
+}
+
+.summary-card.debit .summary-card-amount {
+  color: #e45c64;
+}
+
+.summary-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 76px;
+  height: 76px;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.summary-card.credit .summary-card-icon {
+  color: #24a56a;
+  background-color: #e6f7ee;
+}
+
+.summary-card.debit .summary-card-icon {
+  color: #e45c64;
+  background-color: #fff0f0;
+}
+
+@media (max-width: 700px) {
+  .summary-card {
+    min-height: 120px;
+    padding: 16px;
+  }
+
+  .summary-card-amount {
+    font-size: 22px;
+  }
+
+  .summary-card-icon {
+    width: 60px;
+    height: 60px;
+  }
+}
