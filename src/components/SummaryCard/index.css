@@ -70,3 +70,15 @@
     height: 60px;
   }
 }
+.summary-card.balance {
+  background-color: #eef2ff;
+  border-left: 4px solid #6366f1;
+}
+
+.summary-card.balance h3 {
+  color: #4f46e5;
+}
+
+.summary-card.balance h2 {
+  color: #312e81;
+}

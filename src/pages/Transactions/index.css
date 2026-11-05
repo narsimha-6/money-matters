@@ -1,0 +1,151 @@
+
+.transactions-page {
+  min-height: 100vh;
+  padding: 28px;
+  background: #f8fafc;
+  box-sizing: border-box;
+  font-family: Inter, Arial, sans-serif;
+}
+
+.transactions-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.transactions-header h2 {
+  margin: 0 0 6px;
+  color: #1f2937;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.transactions-header p {
+  margin: 0;
+  color: #8994a8;
+  font-size: 14px;
+}
+
+.transactions-count {
+  padding: 8px 14px;
+  background: #eef3ff;
+  color: #3476ff;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.transactions-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.transactions-search {
+  flex: 1;
+  max-width: 420px;
+}
+
+.transactions-search input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #e1e6ef;
+  border-radius: 9px;
+  background: #ffffff;
+  color: #26334d;
+  font-size: 14px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.transactions-search input:focus {
+  border-color: #3476ff;
+  box-shadow: 0 0 0 3px rgba(52, 118, 255, 0.1);
+}
+
+.transactions-filter {
+  display: flex;
+  gap: 8px;
+}
+
+.transactions-filter button {
+  padding: 10px 16px;
+  border: 1px solid #e1e6ef;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #607093;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.transactions-filter button:hover {
+  border-color: #3476ff;
+  color: #3476ff;
+}
+
+.transactions-filter button.active {
+  background: #3476ff;
+  border-color: #3476ff;
+  color: #ffffff;
+}
+
+.transactions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+  background: #ffffff;
+  border: 1px solid #e9edf4;
+  border-radius: 12px;
+}
+
+.transactions-empty {
+  padding: 35px 15px;
+  text-align: center;
+  color: #8994a8;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .transactions-page {
+    padding: 18px;
+  }
+
+  .transactions-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .transactions-search {
+    max-width: none;
+  }
+
+  .transactions-filter {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .transactions-page {
+    padding: 14px;
+  }
+
+  .transactions-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .transactions-filter button {
+    flex: 1;
+    padding: 10px;
+  }
+
+  .transactions-list {
+    padding: 12px;
+  }
+}

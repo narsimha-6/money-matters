@@ -1,41 +1,86 @@
 
+/* Header */
 .mm-header {
-  height: 46px;
+  width: 100%;
+  min-height: 72px;
+  padding: 0 28px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 0;
-  background-color: #f4f7fb;
+  gap: 16px;
+  background: #ffffff;
+  border-bottom: 1px solid #e9edf4;
+  box-sizing: border-box;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
+/* Header Title */
 .mm-header-title {
   margin: 0;
-  color: #4b587d;
-  font-size: 13px;
+  color: #26334d;
+  font-size: 22px;
   font-weight: 700;
+  letter-spacing: -0.4px;
 }
 
-.mm-add-button {
-  display: flex;
+/* Add Transaction Button */
+.add-transaction-button {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 4px;
-  padding: 6px 10px;
-  border: none;
-  border-radius: 7px;
-  background-color: #3867ff;
+  gap: 8px;
+  padding: 11px 17px;
+  background: #3476ff;
   color: #ffffff;
-  font-size: 8px;
-  font-family: inherit;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: all 0.2s ease;
+  white-space: nowrap;
 }
 
-.mm-add-button:hover {
-  background-color: #2855e8;
+.add-transaction-button:hover {
+  background: #225edb;
+  box-shadow: 0 3px 10px rgba(52, 118, 255, 0.2);
 }
 
-.mm-add-button:focus-visible {
-  outline: 2px solid #8eabff;
-  outline-offset: 2px;
+.add-transaction-button:active {
+  transform: scale(0.97);
+}
+
+.add-transaction-button svg {
+  flex-shrink: 0;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .mm-header {
+    min-height: 65px;
+    padding: 0 18px;
+  }
+
+  .mm-header-title {
+    font-size: 19px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .mm-header {
+    min-height: 60px;
+    padding: 0 12px;
+  }
+
+  .mm-header-title {
+    font-size: 17px;
+  }
+
+  .add-transaction-button {
+    padding: 9px 11px;
+    font-size: 11px;
+  }
 }

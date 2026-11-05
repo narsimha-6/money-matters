@@ -2,13 +2,31 @@
 import {useState} from 'react'
 import './index.css'
 
-const AddTransaction = ({onAddTransaction, onClose}) => {
-  const [name, setName] = useState('')
-  const [amount, setAmount] = useState('')
-  const [type, setType] = useState('debit')
-  const [category, setCategory] = useState('Food')
-  const [date, setDate] = useState('')
+const AddTransaction = ({
+  onAddTransaction,
+  onClose,
+  editingTransaction,
+}) => {
+const [name, setName] = useState(editingTransaction?.name || '')
+const [amount, setAmount] = useState(
+  editingTransaction ? String(editingTransaction.amount) : '',
+)
+const [type, setType] = useState(editingTransaction?.type || 'debit')
+const [category, setCategory] = useState(
+  editingTransaction?.category || 'Food',
+)
+const [date, setDate] = useState(() => {
+  if (!editingTransaction) return ''
 
+  const [day, month, year] = editingTransaction.date.split(' ')
+  const months = {
+    Jan: '01', Feb: '02', Mar: '03', Apr: '04',
+    May: '05', Jun: '06', Jul: '07', Aug: '08',
+    Sep: '09', Oct: '10', Nov: '11', Dec: '12',
+  }
+
+  return `${year}-${months[month]}-${day.replace(',', '').padStart(2, '0')}`
+})
   const handleSubmit = event => {
     event.preventDefault()
 
@@ -22,8 +40,8 @@ const AddTransaction = ({onAddTransaction, onClose}) => {
       return
     }
 
-    const newTransaction = {
-      id: Date.now(),
+    const transactionData = {
+      id: editingTransaction?.id || Date.now(),
       name: name.trim(),
       amount: Number(amount),
       type,
@@ -35,14 +53,14 @@ const AddTransaction = ({onAddTransaction, onClose}) => {
       }),
     }
 
-    onAddTransaction(newTransaction)
+    onAddTransaction(transactionData)
     onClose()
   }
 
   return (
     <div className="transaction-form-overlay">
       <form className="transaction-form" onSubmit={handleSubmit}>
-        <h2>Add Transaction</h2>
+        <h2>{editingTransaction ? 'Edit Transaction' : 'Add Transaction'}</h2>
 
         <label htmlFor="transaction-name">Transaction Name</label>
         <input
@@ -103,7 +121,7 @@ const AddTransaction = ({onAddTransaction, onClose}) => {
           <button type="button" onClick={onClose}>
             Cancel
           </button>
-          <button type="submit">Save Transaction</button>
+          <button type="submit">{editingTransaction ? 'Update Transaction' : 'Save Transaction'}</button>
         </div>
       </form>
     </div>

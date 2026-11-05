@@ -1,40 +1,62 @@
-import { LayoutDashboard,ReceiptText,UserRound } from "lucide-react"
+import {
+  LayoutDashboard,
+  ReceiptText,
+  UserRound,
+} from 'lucide-react'
+import { NavLink } from 'react-router-dom'
 import './index.css'
 
 const Sidebar = () => {
   return (
-   <aside className="mm-sidebar">
-    <div className="mm-brand">
+    <aside className="mm-sidebar">
+      <div className="mm-brand">
         <span className="mm-brand-icon">$</span>
-        <span className="mm-brand-name"><span>Money</span>Matters</span>
-    </div>
+        <span className="mm-brand-name">
+          <span>Money</span>Matters
+        </span>
+      </div>
 
-<nav className="mm-sidebar-nav">
-    <a href="/" className="mm-nav-link active">
-    <LayoutDashboard size={14}/>
-    <span>Dashboard</span>
-    </a>
-</nav>
+      <nav className="mm-sidebar-nav">
+        <NavLink
+          to="/"
+          end
+          className={({ isActive }) =>
+            `mm-nav-link ${isActive ? 'active' : ''}`
+          }
+        >
+          <LayoutDashboard size={18} />
+          <span>Dashboard</span>
+        </NavLink>
 
-<a href="/transactions" className="mm-nav-link">
-<ReceiptText size={14}/>
-<span>Transactions</span>
-</a>
+        <NavLink
+          to="/transactions"
+          className={({ isActive }) =>
+            `mm-nav-link ${isActive ? 'active' : ''}`
+          }
+        >
+          <ReceiptText size={18} />
+          <span>Transactions</span>
+        </NavLink>
 
-<a href="/profile" className="mm-nav-link">
-<UserRound size={14}/>
-<span>Profile</span>
-</a>
+        <NavLink
+          to="/profile"
+          className={({ isActive }) =>
+            `mm-nav-link ${isActive ? 'active' : ''}`
+          }
+        >
+          <UserRound size={18} />
+          <span>Profile</span>
+        </NavLink>
+      </nav>
 
-<div className="mm-sidebar-profile">
-    <div className="mm-profile-avatar">N</div>
-    <div className="mm-profile-info">
-        <strong>Narsimha</strong>
-        <span>narsimha@gmail.com</span>
-    </div>
-</div>
-
-   </aside>
+      <div className="mm-sidebar-profile">
+        <div className="mm-profile-avatar">N</div>
+        <div className="mm-profile-info">
+          <strong>Narsimha</strong>
+          <span>narsimha@gmail.com</span>
+        </div>
+      </div>
+    </aside>
   )
 }
 
